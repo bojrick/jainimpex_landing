@@ -64,36 +64,42 @@ export function ProductsContent() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {selectedCategory?.products.map((product) => (
-              <Card key={product.id} className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="aspect-video relative">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {product.description}
-                  </p>
-                  <div className="space-y-1 mb-4">
-                    {product.specifications.map((spec, index) => (
-                      <div key={index} className="text-xs text-muted-foreground flex items-center">
-                        <span className="w-1 h-1 bg-primary/50 rounded-full mr-2" />
-                        {spec}
-                      </div>
-                    ))}
+              <Link 
+                key={product.id} 
+                href={`/products/${selectedCategory.id}/${product.id}`}
+                className="block group"
+              >
+                <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <div className="aspect-video relative">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
-                  <Button variant="ghost" className="w-full group/btn">
-                    View Details
-                    <ChevronRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                  </Button>
-                </div>
-              </Card>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {product.description}
+                    </p>
+                    <div className="space-y-1 mb-4">
+                      {product.specifications.map((spec, index) => (
+                        <div key={index} className="text-xs text-muted-foreground flex items-center">
+                          <span className="w-1 h-1 bg-primary/50 rounded-full mr-2" />
+                          {spec}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center text-primary font-medium group/btn">
+                      <span>View Details</span>
+                      <ChevronRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
