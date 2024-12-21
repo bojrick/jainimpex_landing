@@ -15,8 +15,20 @@ interface ProductPageProps {
   };
 }
 
+interface ProductDetails {
+  id: string;
+  name: string;
+  description: string;
+  specifications: string[];
+  image: string;
+  categoryTitle: string;
+  features: string[];
+  applications: string[];
+  certifications: string[];
+}
+
 export default function ProductPage({ params }: ProductPageProps) {
-  const [productDetails, setProductDetails] = useState<any>(null)
+  const [productDetails, setProductDetails] = useState<ProductDetails | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -26,7 +38,7 @@ export default function ProductPage({ params }: ProductPageProps) {
     if (product) {
       setProductDetails({
         ...product,
-        categoryTitle: category?.title,
+        categoryTitle: category?.title || "",
         features: [
           "High electrical conductivity",
           "Excellent thermal conductivity",
@@ -59,7 +71,7 @@ export default function ProductPage({ params }: ProductPageProps) {
     return (
       <div className="container py-16 text-center">
         <h1 className="text-2xl font-bold mb-4">Product Not Found</h1>
-        <p className="text-muted-foreground mb-8">The product you're looking for doesn't exist.</p>
+        <p className="text-muted-foreground mb-8">The product you&apos;re looking for doesn&apos;t exist.</p>
         <Link href="/products">
           <Button>Back to Products</Button>
         </Link>
@@ -104,7 +116,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             <Card className="p-6">
               <h2 className="text-xl font-semibold mb-4">Technical Specifications</h2>
               <div className="grid gap-4">
-                {productDetails.specifications.map((spec: string, index: number) => {
+                {productDetails.specifications.map((spec, index) => {
                   const [label, value] = spec.split(": ")
                   return (
                     <div key={index} className="grid grid-cols-2 gap-4 py-2 border-b last:border-0">
@@ -121,7 +133,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <Card className="p-6">
                 <h2 className="text-xl font-semibold mb-4">Key Features</h2>
                 <ul className="space-y-2">
-                  {productDetails.features.map((feature: string) => (
+                  {productDetails.features.map((feature) => (
                     <li key={feature} className="flex items-center text-muted-foreground">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                       {feature}
@@ -133,7 +145,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <Card className="p-6">
                 <h2 className="text-xl font-semibold mb-4">Applications</h2>
                 <ul className="space-y-2">
-                  {productDetails.applications.map((application: string) => (
+                  {productDetails.applications.map((application) => (
                     <li key={application} className="flex items-center text-muted-foreground">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                       {application}
@@ -147,7 +159,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             <Card className="p-6">
               <h2 className="text-xl font-semibold mb-4">Certifications</h2>
               <div className="flex flex-wrap gap-2">
-                {productDetails.certifications.map((cert: string) => (
+                {productDetails.certifications.map((cert) => (
                   <span
                     key={cert}
                     className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
