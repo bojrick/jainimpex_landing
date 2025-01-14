@@ -31,36 +31,36 @@ export function FooterSection() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       {/* Main Footer */}
-      <div className="container px-4 mx-auto py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container py-12 md:py-16">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Jain Impex</h3>
-            <div className="space-y-3">
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg">Jain Impex</h3>
+            <div className="space-y-3 text-sm">
               <p className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <span>123 Industrial Area, Ahmedabad, Gujarat, India - 380001</span>
               </p>
               <p className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-primary" />
+                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="tel:+917942825807" className="hover:text-white">+91 79428 25807</a>
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-primary" />
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="mailto:info@jainimpex.com" className="hover:text-white">info@jainimpex.com</a>
               </p>
             </div>
           </div>
 
           {/* Products */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Products</h3>
-            <ul className="space-y-2">
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg">Products</h3>
+            <ul className="space-y-2 text-sm">
               {navigation.products.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors inline-block py-1"
                   >
                     {item.name}
                   </Link>
@@ -70,14 +70,14 @@ export function FooterSection() {
           </div>
 
           {/* Company */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Company</h3>
-            <ul className="space-y-2">
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg">Company</h3>
+            <ul className="space-y-2 text-sm">
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors inline-block py-1"
                   >
                     {item.name}
                   </Link>
@@ -87,14 +87,14 @@ export function FooterSection() {
           </div>
 
           {/* Support */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Support</h3>
-            <ul className="space-y-2">
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg">Support</h3>
+            <ul className="space-y-2 text-sm">
               {navigation.support.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors inline-block py-1"
                   >
                     {item.name}
                   </Link>
@@ -110,7 +110,7 @@ export function FooterSection() {
             <a 
               key={item.name}
               href={item.href}
-              className="text-gray-400 hover:text-white"
+              className="text-gray-400 hover:text-white p-2"
               aria-label={item.name}
             >
               <item.icon className="w-6 h-6" />
@@ -121,12 +121,12 @@ export function FooterSection() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="container px-4 mx-auto py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm">© 2024 Jain Impex. All rights reserved.</p>
-            <div className="flex gap-6 text-sm">
-              <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+        <div className="container py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <p>© 2024 Jain Impex. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-white py-1">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white py-1">Terms of Service</Link>
             </div>
           </div>
         </div>

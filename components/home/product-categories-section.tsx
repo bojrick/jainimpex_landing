@@ -73,7 +73,7 @@ export function ProductCategoriesSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary">
-              Excellence in Metal Manufacturing
+              Excellence in Metal Distribution
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Discover our premium range of industrial metal products crafted with precision
