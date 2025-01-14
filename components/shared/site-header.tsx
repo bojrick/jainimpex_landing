@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
-import Image from "next/image"
 
 const navigation = [
   { name: "Home", href: "/" },
